@@ -1,0 +1,173 @@
+---
+title: "RWorksheet_asenjo#2"
+author: "Samuel Asenjo"
+date: "2024-09-25"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+1. 1.	A.  the output is it prints out number that starts from – 5 up to 5
+
+```{r}
+x <- -5:5
+x
+
+```
+b. the value of x is 1 to 7
+```{r}
+x <- 1:7
+x
+```
+2. the output is that is prints started from 1 until 3 with the interval of 0.2
+```{r}
+S <- seq(1, 3, by =0.2)
+S 
+
+```
+3. a. the value is 22
+```{r}
+ages <- c(34, 28, 22, 36, 27, 18, 52, 39, 42, 29, 35, 31, 27, 22, 37, 34, 19, 20, 57, 49, 50, 37, 46, 25, 17, 37, 43, 53, 41, 51, 35, 24, 33, 41, 53, 40, 18, 44, 38, 41, 48, 27, 39, 19, 30, 61, 54, 58, 26, 18)
+third_element <- ages[3]
+third_element
+
+```
+b. the values are 28 and 36
+```{r}
+ages[c(2, 4)] 
+```
+c. 
+```{r}
+ages[-c(4, 12)] 
+```
+
+4. a. the output when I print the vector names is it shows one row contains numeric values of three columns above. After I use access to the vector it only prints the first column and third columns and their numeric values. 
+```{r}
+x [c("first", "third")]
+```
+
+b.
+```{r}
+x <- c("first"=3, "second"=0, "third"=9)
+names(x)
+
+```
+5.	a. and b. the output is that it prints the values – 3 to 2 but the second element that is supposed to be -2 has changed to 0.
+```{r}
+x <- seq(-3, 2)
+x
+x[2] <- 0
+x
+
+```
+6. a. 
+```{r}
+MrCruzFuelData <- data.frame(
+    Month = c("Jan", "Feb", "Mar", "Apr", "May", "Jun"),
+    Price_per_Liter= c(52.50, 57.25, 60.00, 65.00, 74.25, 54.00),
+    Purchase_quantity= c(25, 30, 40, 50, 10, 45)
+)
+MrCruzFuelData
+```
+b. The average fuel expenditure of Mr Cruz from Jan to June is 59.26.
+```{r}
+avg_fuel <- weighted.mean(MrCruzFuelData$Price_per_Liter, MrCruzFuelData$Purchase_quantity)
+avg_fuel
+```
+7. a.
+```{r}
+rivers
+```
+b. The results are it prints the length, sum, mean, median, variance, standard deviation, minimum, and maximum of the rivers.
+c.
+```{r}
+data <- c(length(rivers), sum(rivers), mean(rivers), median(rivers), var(rivers), sd(rivers), min(rivers), max(rivers))
+data
+```
+8. a.
+```{r}
+
+PowerRanking <- c(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25)
+
+CelebrityName <- c("Tom Cruise", "Rolling Stones", "Oprah Winfrey", "U2", "Tiger Woods", "Steven Spielberg", "Howard Stern", "50 Cent", "Cast of the Sopranos", "Dan Brown", "Bruce Springsteen", "Donald Trump", "Muhammad Ali", "Paul McCartney", "George Lucas", "Elton John", "David Letterman", "Phil Mickelson", "J.K. Rowling", "Brad Pitt", "Peter Jackson", "Dr. Phil McGraw", "Jay Leno", "Celine Dion", "Kobe Bryant")
+
+Pay <- c(67, 90, 225, 110, 90, 332, 302, 41, 52, 88, 55, 44, 55, 40, 233, 34, 40, 47, 75, 25, 39, 45, 32, 40, 31)
+
+
+PowerRanking
+CelebrityName
+Pay
+```
+b. 
+```{r}
+Rowling <- which(CelebrityName == "J.K. Rowling") 
+
+PowerRanking[Rowling] <- 15
+Pay[Rowling] <- 90
+
+PowerRanking
+Pay
+
+```
+c. 
+```{r}
+Forbes <- read.csv("/cloud/project/Worksheet 2/PowerRanking.csv")
+```
+d. 
+```{r}
+Ranks <- Forbes[10:20,]
+Ranks
+save(Ranks, file = "/cloud/project/Worksheet 2/Ranks.RData")
+```
+e. The output shows that it prints celebrities starting from ranked 10 to 20 with their pay and names.
+
+9. a. 
+```{r}
+library("openxlsx")
+library("readxl")
+
+hotelsvienna <- read_xlsx("/cloud/project/Worksheet 2/hotels-vienna.xlsx")
+```
+b. It has 428 row dimensions and 24 column dimensions
+```{r}
+dim(hotelsvienna)
+```
+c. 
+```{r}
+column <- hotelsvienna[, c("country", "neighbourhood", "price","stars", "accommodation_type", "rating")]
+```
+d. 
+```{r}
+save(column, file ="/cloud/project/Worksheet 2/new.RData")
+```
+
+e. 
+```{r}
+load("new.RData")
+head(column, 6)
+tail(column, 6)
+```
+10. a. 
+```{r}
+vegetables <- list("Carrots", "Potato", "Tomatoes", "Eggplant", "Garlic", "Cucumber", "Bell_Pepper", "Chili_Pepper", "Onion", "Black Beans" )
+vegetables
+```
+b. 
+```{r}
+vegetables <- append(vegetables, list("Cabbage", "Broccoli"))
+vegetables
+```
+c. There are 16 data points in vegetables list.
+```{r}
+vegetables <- append(vegetables, list("Radish", "Pumpkin", "Ginger", "Leek"))
+vegetables
+length(vegetables)
+```
+d. There were 13 vegetables left
+```{r}
+vegetables <- vegetables[-c(5, 10, 15)]
+vegetables
+```
+
