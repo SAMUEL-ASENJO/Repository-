@@ -1,0 +1,130 @@
+---
+title: "RWorksheet_asenjo#3a"
+author: "Samuel Asenjo"
+date: "2024-09-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+VECTORS
+1. 
+```{r}
+LETTERS
+```
+```{r}
+letters
+```
+a. 
+```{r}
+f11 <- LETTERS[1:11]
+f11
+```
+b. 
+```{r}
+od <- LETTERS[seq(1, length(LETTERS), 2)]
+od
+```
+c. 
+```{r}
+vowels <- c("A", "E", "I", "O", "U")
+vowels
+```
+
+```{r}
+v <- LETTERS [LETTERS %in% vowels]
+v
+```
+d.  
+```{r}
+l5 <- letters[22:26]
+l5
+```
+e. 
+```{r}
+ll5 <- letters[15:24]
+ll5
+```
+2. a. 
+```{r}
+city <- c("Tugegarao City","Manila", "Iloilo City", "Tacloban", "Samal Island", "Davao City")
+```
+b. 
+```{r}
+temp<- c(42, 39, 34, 34, 30, 27)
+```
+c. 
+```{r}
+avgtemp <- data.frame(city, temp)
+avgtemp
+```
+d. 
+```{r}
+names(avgtemp) <- c("City", "Temp")
+avgtemp
+
+```
+e. 
+```{r}
+s <- str(avgtemp)
+s
+```
+f. The content of row 3 and 4 are Iloilo City with 34 celsius and Tacloban with 34 celsius.
+```{r}
+avgtemp[3,]
+avgtemp[4,]
+```
+
+g. 
+```{r}
+ht <- avgtemp[1,]
+ht
+lt <- avgtemp[6,]
+lt
+```
+
+MATRICES
+2. 
+a. 
+```{r}
+m <- matrix(data = c(1,2,3,4,5,6,7,8,11,12,13,14),3,4)
+m
+```
+b. 
+```{r}
+m2 <- m * 2
+m2
+```
+c. 
+```{r}
+r2 <- m2[2,]
+r2
+```
+d. 
+```{r}
+m2[1:2, 3:4]
+
+```
+e. 
+```{r}
+m2[3, 2:3]
+```
+f. 
+```{r}
+m2[,4]
+```
+g. 
+```{r}
+rownames(m2) <- c("isa", "dalawa", "tatlo")
+colnames(m2) <- c("uno", "dos", "tres", "quatro")
+m2
+```
+h. 
+```{r}
+dim(m) <- c(6, 2)
+m
+```
+ARRAYS
+3. 
