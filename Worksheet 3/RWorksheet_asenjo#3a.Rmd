@@ -128,3 +128,23 @@ m
 ```
 ARRAYS
 3. 
+a.
+```{r}
+v <- c(1, 2, 3, 6, 7, 8, 9, 0, 3, 4, 5, 1)
+vr<- rep(v, each = 2)
+a <- array(vr, dim = c(2, 4, 2))
+a
+```
+b. It has 3 dimensions
+```{r}
+dim(a)
+```
+
+c. 
+```{r}
+dimnames(a) <- list(letters[1:2], LETTERS[1:4], c("1st-Dimensional Array", "2nd-Dimensional Array"))
+a
+
+```
+
+
