@@ -1,0 +1,111 @@
+---
+title: "RWorksheet_asenjo#3b"
+author: "Samuel Asenjo"
+date: "2024-09-30"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+1. 
+a. 
+```{r}
+
+data <- data.frame(
+  Respondents = c(1:20),
+  Sex = c(2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2),
+  FathersOccupation = c(1, 3, 3, 3, 1, 2, 3, 1, 1, 1, 3, 2, 1, 3, 3, 1, 3, 1, 2, 1) ,
+  PersonsatHome =  c(5, 7, 3, 8, 5, 9, 6, 7, 8, 4, 7, 5, 4, 7, 8, 8, 3, 11, 7, 6),
+  SiblingsatSchool =  c(6, 4, 4, 1, 2, 1, 5, 3, 1, 2, 3, 2, 5, 5, 2, 1, 2, 5, 3, 2),
+  TypesofHouses = c(1, 2, 3, 1, 1, 3, 3, 1, 2, 3, 2, 3, 2, 2, 3, 3, 3, 3, 3, 2)
+)
+data
+```
+b. The data has 20 rows and 6 columns 
+```{r}
+summary(data)
+```
+
+c. No, the mean is 2.95
+```{r}
+SiblingsatSchool =  c(6, 4, 4, 1, 2, 1, 5, 3, 1, 2, 3, 2, 5, 5, 2, 1, 2, 5, 3, 2)
+mean(SiblingsatSchool)
+```
+d. 
+```{r}
+sd <- data[1:2, ]
+sd
+
+```
+e. 
+```{r}
+ed <- data[c(3, 5), c(2,4)]
+ed
+```
+f. 
+```{r}
+types_houses <- data[, "TypesofHouses"]
+
+types_houses
+
+```
+g. 
+```{r}
+mf <- subset(data, Sex == 1 & FathersOccupation == 1)
+mf
+```
+h. 
+```{r}
+fs <- subset(data, Sex ==2 & SiblingsatSchool >=5)
+fs
+```
+2. 
+a. it displays the data types of each objects.
+```{r}
+df = data.frame(Ints=integer(),
+      Doubles=double(), Characters=character(),
+      Logicals=logical(),
+      Factors=factor(),
+      stringsAsFactors=FALSE)
+
+print("Structure of the empty dataframe:")
+print(str(df))
+```
+3. a. 
+```{r}
+HouseholdData <- read.csv("/cloud/project/Worksheet 3/HouseholdData.csv")
+
+```
+b. 
+```{r}
+HouseholdData$Sex <- factor(HouseholdData$Sex, levels = c("Male", "Female"), labels = c(1,2))
+HouseholdData
+```
+c. 
+```{r}
+HouseholdData$TypesOfHouses <- factor(HouseholdData$TypesOfHouses, levels = c("Wood", "Congrete", "Semi-congrete"), labels = c(1, 2, 3))
+HouseholdData
+```
+d. 
+```{r}
+HouseholdData$FathersOccupation <- factor(HouseholdData$FathersOccupation, levels = c(1, 2, 3), labels = c("Farmer", "Driver", "Others"))
+HouseholdData
+```
+e. 
+```{r}
+fr <- subset(HouseholdData, Sex==2 & FathersOccupation =="Driver")
+fr
+```
+f. 
+```{r}
+ns <- subset(HouseholdData, Respondents & SiblingsAtSchool >=  5)
+ns
+
+```
+The graph illustrates the daily sentiment of tweets from July 14 to July 21, 2020, revealing that negative sentiments (red) were the most prominent, particularly on July 15 and July 21, while positive sentiments (blue) peaked on July 21. The neutral sentiments (yellow) also peaked on July 15. In general, the data indicates that public discussion during this time was mainly critical, with significantly fewer positive expressions compared to negative ones.
+
+
+
