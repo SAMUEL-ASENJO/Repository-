@@ -51,7 +51,7 @@ factor_months_vector <- factor(months_vector)
 
 factor_months_vector
 ```
-3. 
+3. Yes, they are both useful because it shows the length, class, mode, and the number of repetitions of the character of two vectors.
 ```{r}
 summary(months_vector)
 summary(factor_months_vector)
