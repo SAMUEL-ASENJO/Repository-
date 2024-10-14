@@ -72,8 +72,13 @@ new_order_data
 ```
 
 
-5. 
+5. a.
 ```{r}
-Import_march <- read.table("/cloud/project/Worksheet 4/import_march.csv")
+import_march <- read.table("import_march.csv", header = TRUE, sep =",")
+
 ```
 
+b. 
+```{r}
+import_march
+```
