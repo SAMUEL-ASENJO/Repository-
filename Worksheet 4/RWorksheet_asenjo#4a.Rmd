@@ -82,3 +82,96 @@ b.
 ```{r}
 import_march
 ```
+```{r}
+ p <-as.integer( readline(prompt="Enter a number between 1 to 50: "))
+if(!is.na(p) && p == 20){
+  print("TRUE")
+}else if (!is.na(p) && p >=1 && p <= 50){
+   cat("Your number is", p)
+}else{
+print("The number selected is beyond the range of 1 to 50")}
+
+```
+
+7.
+```{r}
+p <- as.numeric(readline(prompt="Enter a price that is divisible by 50: "))
+
+m <- function(p) {
+b <- 0
+if (!is.na(p) && p >= 1000) {
+b <- b + p %/% 1000
+p <- p %% 1000
+}
+4
+if (!is.na(p) && p >= 500) {
+b <- b + p %/% 500
+p <- p %% 500
+}
+if (!is.na(p) && p >= 200) {
+b <- b + p %/% 200
+p <- p %% 200
+}
+if (!is.na(p) && p >= 100) {
+b <- b + p %/% 100
+p <- p %% 100
+}
+if (!is.na(p) && p >= 50) {
+b <- b + p %/% 50
+p <- p %% 50
+}
+return(b)
+}
+m(p)
+```
+
+8. a.
+```{r}
+g <- data.frame(
+  Name = c("Annie", "Thea", "Steve", "Hanna"),
+  Grade1 = c(85, 65, 75, 95),
+  Grade2 = c(65, 75, 55, 75),
+  Grade3 = c(85, 90, 80, 100),
+  Grade4 = c(100, 90, 85, 90)
+)
+
+g
+```
+
+b. 
+```{r}
+a <- rowSums(g[,-1]) / (ncol(g) - 1)
+if (any(a > 90)) {
+n <- g$Name[a> 90]
+s <- a [a > 90]
+cat(paste(n, "'s average grade this semester is ", s, ".\n", sep = ""))
+} else{
+cat("There are no student that has an average grade over 90.\n")
+}
+
+```
+
+c. 
+```{r}
+t <- colSums(g[,-1]) / nrow(g)
+if (any(t < 80)) {
+d <- which(t < 80)
+cat(paste("The", d, "th test was difficult.\n"))
+} else {
+cat("All of the tests had average scores of 80 or above.\n")
+}
+```
+
+d. 
+```{r}
+h <- apply(g[,-1], 1, function(x) sort(x, decreasing = TRUE)[1])
+if (any(h > 90)) {
+hn <- g$Name[h > 90]
+hs <- h [h > 90]
+cat(paste(hn, "'s highest grade this semester is ", hs, ".\n"))
+} else {
+cat("There are no student that has a highest grade exceeded 90.\n")
+}
+
+```
+
